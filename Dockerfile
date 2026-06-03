@@ -1,15 +1,19 @@
 
-# Use official Nginx image
-FROM stable-alpine3.23-perl
+# Most secure official NGINX image with a shell
+FROM nginx:stable-alpine
 
 # Remove default nginx website
 RUN rm -rf /usr/share/nginx/html/*
 
-# Copy your app files into the nginx html directory
+RUN apk update && apk upgrade --no-cache
+
+# Copy your app files
 COPY . /usr/share/nginx/html
 
 # Expose port 80
 EXPOSE 80
 
-# Start Nginx
 CMD ["nginx", "-g", "daemon off;"]
+
+
+
