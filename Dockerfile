@@ -1,6 +1,6 @@
 
 # Use official Nginx image
-FROM nginx:1-alpine
+FROM stable-alpine3.23-perl
 
 # Remove default nginx website
 RUN rm -rf /usr/share/nginx/html/*
